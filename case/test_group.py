@@ -10,7 +10,7 @@ class TestGrouping:
         self.group = Grouping()
 
     @pytest.mark.smoke
-    @pytest.mark.parametrize("a,check", [(1, 200)], ids=["ONE"])
+    @pytest.mark.parametrize("a,check", [(1, 300)], ids=["ONE"])
     def test_get_list(self, a, check):
         r = self.group.get_list(a)
         assert r.status_code == check
