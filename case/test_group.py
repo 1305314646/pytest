@@ -10,7 +10,7 @@ class TestGrouping:
         self.group = Grouping()
 
     @pytest.mark.smoke
-    @pytest.mark.parametrize("a,check", [(1, 300)], ids=["ONE"])
+    @pytest.mark.parametrize("a,check", [(1, 200)], ids=["ONE"])
     def test_get_list(self, a, check):
         r = self.group.get_list(a)
         assert r.status_code == check
@@ -20,7 +20,7 @@ class TestGrouping:
         r = self.group.add_group(a)
         assert r.status_code == check
 
-    @pytest.mark.parametrize("a,check", [["[?name=='晓狗'].id", 200]])
+    @pytest.mark.parametrize("a,check", [["[?name=='晓狗'].id", 300]])
     def test_add_company(self, a, check):
         r = self.group.get_list(1)
         id = jmespath.search(a, r.json())
